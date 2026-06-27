@@ -36,12 +36,45 @@
       font-size: 0.95rem;
     }
 
+    nav {
+      background-color: #2f363d;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #444d56;
+      color: #fff;
+    }
+
     main {
       max-width: 800px;
       margin: 40px auto;
       padding: 0 20px;
     }
 
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #24292e;
+      margin: 48px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e1e4e8;
+    }
+
+    /* ── 用語カード ── */
     .term-card {
       background-color: #fff;
       border-radius: 8px;
@@ -74,6 +107,136 @@
       font-size: 0.97rem;
     }
 
+    /* ── Tipsセクション ── */
+    .tips-intro {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 24px 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      border-left: 4px solid #28a745;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .tips-intro strong {
+      color: #24292e;
+    }
+
+    .steps-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .steps-card h3 {
+      font-size: 1.1rem;
+      color: #24292e;
+      margin-bottom: 16px;
+    }
+
+    .steps-card ol {
+      padding-left: 20px;
+      color: #555;
+      font-size: 0.97rem;
+    }
+
+    .steps-card ol li {
+      margin-bottom: 10px;
+    }
+
+    .steps-card ol li code {
+      background-color: #f0f0f0;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: "SFMono-Regular", Consolas, monospace;
+    }
+
+    .tip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .tip-grid { grid-template-columns: 1fr; }
+    }
+
+    .tip-item {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .tip-item .tip-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .tip-item h4 {
+      font-size: 0.97rem;
+      color: #24292e;
+      margin-bottom: 6px;
+    }
+
+    .tip-item p {
+      font-size: 0.88rem;
+      color: #666;
+    }
+
+    .caution-card {
+      background-color: #fff8e1;
+      border-radius: 8px;
+      padding: 20px 28px;
+      margin-bottom: 20px;
+      border-left: 4px solid #f6a623;
+    }
+
+    .caution-card h3 {
+      font-size: 1rem;
+      color: #b45309;
+      margin-bottom: 10px;
+    }
+
+    .caution-card ul {
+      padding-left: 18px;
+      font-size: 0.93rem;
+      color: #7c5c00;
+    }
+
+    .caution-card ul li {
+      margin-bottom: 6px;
+    }
+
+    .questions-card {
+      background-color: #f0fff4;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+    }
+
+    .questions-card h3 {
+      font-size: 1rem;
+      color: #1a7f37;
+      margin-bottom: 12px;
+    }
+
+    .questions-card ul {
+      padding-left: 18px;
+      font-size: 0.93rem;
+      color: #2d6a3f;
+    }
+
+    .questions-card ul li {
+      margin-bottom: 8px;
+    }
+
     footer {
       text-align: center;
       padding: 30px;
@@ -86,14 +249,25 @@
 
   <header>
     <h1>Git・GitHub 用語集</h1>
-    <p>はじめての方のための基本用語まとめ</p>
+    <p>はじめての方のための基本用語まとめ＋実践Tips</p>
   </header>
+
+  <nav>
+    <a href="#glossary">用語集</a>
+    <a href="#tips">はじめての Tips</a>
+    <a href="#steps">最短手順</a>
+    <a href="#caution">注意点</a>
+    <a href="#next">次のステップ</a>
+  </nav>
 
   <main>
 
+    <!-- ── 用語集 ── -->
+    <h2 class="section-title" id="glossary">基本用語集</h2>
+
     <div class="term-card">
       <h2>リポジトリ <span class="label">Repository</span></h2>
-      <p>ファイルやフォルダの変更履歴をまとめて管理する場所です。プロジェクトの「保存箱」のようなイメージで、誰がいつどんな変更を加えたかをすべて記録しています。GitHubではリポジトリをオンライン上で公開・共有することができます。</p>
+      <p>ファイルやフォルダの変更履歴をまとめて管理する場所です。プロジェクトの「保存箱」のようなイメージで、誰がいつどんな変更を加えたかをすべて記録しています。GitHubではリポジトリをオンライン上で公開・共有することができます。Google Driveとの決定的な違いは「変更の意図と履歴が構造化されて残る」点です。</p>
     </div>
 
     <div class="term-card">
@@ -108,18 +282,87 @@
 
     <div class="term-card">
       <h2>プルリクエスト <span class="label">Pull Request</span></h2>
-      <p>自分が加えた変更を、別のブランチ（多くはメインブランチ）に取り込んでほしいと依頼する機能です。GitHubでは変更内容を一覧表示でき、チームメンバーがコードをレビューしてコメントや承認をしてから統合する流れが作れます。</p>
+      <p>「この変更を本番に取り込んでいいですか？」という提案の仕組みです。自分のブランチで行った変更をメインブランチへ統合してほしいと依頼でき、チームメンバーがレビュー・コメント・承認をしてから確定（Merge）する流れを作れます。Claude Codeは作業完了後に自動でプルリクエストを作成します。</p>
     </div>
 
     <div class="term-card">
       <h2>ブランチ <span class="label">Branch</span></h2>
-      <p>メインの作業履歴から分岐して、独立した作業ができる仕組みです。新機能の開発やバグ修正を別のブランチで行うことで、メインのコードに影響を与えずに作業を進められます。作業が完了したらプルリクエストを使って統合します。</p>
+      <p>メインの作業履歴から分岐して、独立した作業ができる仕組みです。新機能の開発やバグ修正を別のブランチで行うことで、メインのコードに影響を与えずに作業を進められます。作業が完了したらプルリクエストを使って統合（Merge）します。</p>
+    </div>
+
+    <!-- ── Tips ── -->
+    <h2 class="section-title" id="tips">はじめての Tips</h2>
+
+    <div class="tips-intro">
+      <strong>GitHubとClaude Codeを繋ぐと何ができる？</strong><br>
+      GitHubは「変更履歴つきのコード専用Google Drive」です。Claude Codeと接続することで、<strong>日本語の指示だけでファイル操作・公開までが完結</strong>します。インストール不要でブラウザから使えます。
+    </div>
+
+    <div class="tip-grid">
+      <div class="tip-item">
+        <div class="tip-icon">📝</div>
+        <h4>README.md がプロジェクトの「顔」</h4>
+        <p>リポジトリを開いたとき最初に表示されるファイルです。プロジェクトの概要を書いておくと、見た人に伝わりやすくなります。</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🌐</div>
+        <h4>GitHub Pages で即公開</h4>
+        <p>Settings → Pages → Branch: main → Save の設定だけで、リポジトリ内の HTML ファイルがそのまま Web ページとして公開されます。</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🤖</div>
+        <h4>Claude Code への指示の書き方</h4>
+        <p>「ファイル名＋内容＋デザイン要件」を日本語で書くだけで OK。具体的であるほど精度が上がります。</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">✅</div>
+        <h4>人間が最終承認する設計</h4>
+        <p>Claude Code はプルリクエストを作成するまでが役割。「Merge pull request」ボタンを押して確定するのは人間です。</p>
+      </div>
+    </div>
+
+    <!-- ── 最短手順 ── -->
+    <h2 class="section-title" id="steps">WebページをGitHub Pagesで公開する最短手順</h2>
+
+    <div class="steps-card">
+      <h3>再現可能なステップ</h3>
+      <ol>
+        <li>GitHubにリポジトリを新規作成（<code>Add a README file</code> にチェック必須）</li>
+        <li>GitHub Settings → Applications で Claude アプリに書き込み権限を付与</li>
+        <li><code>claude.ai/code</code> でリポジトリを選択し、日本語で指示を送る</li>
+        <li>Claude Code が Pull Request を作成 → <code>Create pull request</code> → <code>Merge pull request</code> で確定</li>
+        <li>GitHub Pages（Settings → Pages → Branch: main → Save）で URL が発行され、Web ページとして公開される</li>
+      </ol>
+    </div>
+
+    <!-- ── 注意点 ── -->
+    <h2 class="section-title" id="caution">注意点</h2>
+
+    <div class="caution-card">
+      <h3>⚠️ やってはいけないこと・忘れがちな設定</h3>
+      <ul>
+        <li><strong>個人情報・APIキー・パスワードはリポジトリに絶対に入れない。</strong> Public リポジトリは世界中から閲覧可能です。</li>
+        <li>リポジトリ作成時に <strong>「Add a README file」のチェックを忘れると</strong>、Claude Code が接続できない場合があります。</li>
+        <li>Public リポジトリに上げたファイルは <strong>世界中から検索・閲覧可能</strong>です。公開して問題ないか確認してからプッシュしましょう。</li>
+      </ul>
+    </div>
+
+    <!-- ── 次のステップ ── -->
+    <h2 class="section-title" id="next">次に深めるべき問い</h2>
+
+    <div class="questions-card">
+      <h3>📌 学習を続けるためのヒント</h3>
+      <ul>
+        <li>ブランチ（Branch）とは何か？なぜ直接 main に書かず分岐させるのか？</li>
+        <li>複数ファイルで構成されるプロジェクトを Claude Code に指示するとき、どう伝えると精度が上がるか？</li>
+        <li>GitHub Pages で公開したページをカスタムドメインに繋げるにはどうするか？</li>
+      </ul>
     </div>
 
   </main>
 
   <footer>
-    <p>Git・GitHub用語集</p>
+    <p>Git・GitHub 用語集 ＋ 実践 Tips</p>
   </footer>
 
 </body>
