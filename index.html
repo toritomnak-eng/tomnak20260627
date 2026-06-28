@@ -59,6 +59,23 @@
       color: #fff;
     }
 
+    /* ── フロー図 ── */
+    .diagram-section {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 28px 32px 24px;
+      margin-bottom: 0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      overflow-x: auto;
+    }
+
+    .diagram-section h2 {
+      font-size: 1.1rem;
+      color: #24292e;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
     main {
       max-width: 800px;
       margin: 40px auto;
@@ -253,6 +270,7 @@
   </header>
 
   <nav>
+    <a href="#flow">ワークフロー図</a>
     <a href="#glossary">用語集</a>
     <a href="#tips">はじめての Tips</a>
     <a href="#steps">最短手順</a>
@@ -261,6 +279,64 @@
   </nav>
 
   <main>
+
+    <!-- ── フロー図 ── -->
+    <h2 class="section-title" id="flow">GitHub ワークフロー図</h2>
+
+    <div class="diagram-section">
+      <h2>ファイルを変更してから公開されるまでの流れ</h2>
+      <svg viewBox="0 0 760 160" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="GitHubワークフロー図" role="img" style="min-width:480px;">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L8,3.5 Z" fill="#0366d6"/>
+          </marker>
+        </defs>
+
+        <!-- ボックス1: ローカル編集 -->
+        <rect x="10" y="40" width="110" height="60" rx="8" fill="#e8f0fe" stroke="#0366d6" stroke-width="1.5"/>
+        <text x="65" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#0366d6" font-family="sans-serif">ローカル編集</text>
+        <text x="65" y="88" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">ファイルを変更する</text>
+
+        <!-- 矢印1 -->
+        <line x1="122" y1="70" x2="148" y2="70" stroke="#0366d6" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- ボックス2: コミット -->
+        <rect x="150" y="40" width="110" height="60" rx="8" fill="#e8f0fe" stroke="#0366d6" stroke-width="1.5"/>
+        <text x="205" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#0366d6" font-family="sans-serif">コミット</text>
+        <text x="205" y="88" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">変更を記録する</text>
+
+        <!-- 矢印2 -->
+        <line x1="262" y1="70" x2="288" y2="70" stroke="#0366d6" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- ボックス3: プッシュ -->
+        <rect x="290" y="40" width="110" height="60" rx="8" fill="#e8f0fe" stroke="#0366d6" stroke-width="1.5"/>
+        <text x="345" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#0366d6" font-family="sans-serif">プッシュ</text>
+        <text x="345" y="88" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">GitHubへ送信する</text>
+
+        <!-- 矢印3 -->
+        <line x1="402" y1="70" x2="428" y2="70" stroke="#0366d6" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- ボックス4: プルリクエスト -->
+        <rect x="430" y="40" width="130" height="60" rx="8" fill="#e8f0fe" stroke="#0366d6" stroke-width="1.5"/>
+        <text x="495" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#0366d6" font-family="sans-serif">プルリクエスト</text>
+        <text x="495" y="88" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">変更を提案する</text>
+
+        <!-- 矢印4 -->
+        <line x1="562" y1="70" x2="588" y2="70" stroke="#0366d6" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- ボックス5: マージ -->
+        <rect x="590" y="40" width="110" height="60" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="1.5"/>
+        <text x="645" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a7f37" font-family="sans-serif">マージ</text>
+        <text x="645" y="88" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">変更を取り込む</text>
+
+        <!-- 下部ラベル -->
+        <text x="65" y="130" text-anchor="middle" font-size="9.5" fill="#888" font-family="sans-serif">① 自分のPC上</text>
+        <text x="205" y="130" text-anchor="middle" font-size="9.5" fill="#888" font-family="sans-serif">② 履歴に保存</text>
+        <text x="345" y="130" text-anchor="middle" font-size="9.5" fill="#888" font-family="sans-serif">③ クラウドへ</text>
+        <text x="495" y="130" text-anchor="middle" font-size="9.5" fill="#888" font-family="sans-serif">④ レビュー依頼</text>
+        <text x="645" y="130" text-anchor="middle" font-size="9.5" fill="#28a745" font-family="sans-serif">⑤ 完了・公開</text>
+      </svg>
+    </div>
 
     <!-- ── 用語集 ── -->
     <h2 class="section-title" id="glossary">基本用語集</h2>
